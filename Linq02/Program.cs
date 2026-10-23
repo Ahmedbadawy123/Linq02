@@ -196,17 +196,28 @@ namespace Linq02
 
             #region 15. Build a Dictionary<int, Product> keyed by ProductID. Then retrieve and print the product with ID = 18.
 
-            var productDictionary = Source.ProductList.ToDictionary(p => p.ProductID);
-          
-            if (productDictionary.TryGetValue(18, out var product))
-            {
-                Console.WriteLine(product);
-            }
+            //var productDictionary = Source.ProductList.ToDictionary(p => p.ProductID);
+
+            //if (productDictionary.TryGetValue(18, out var product))
+            //{
+            //    Console.WriteLine(product);
+            //}
 
             // Helping By AI And I Understand It
 
 
             #endregion
+
+            #region 16. Get the first product whose price is greater than $50.
+
+            //var firstProductOver50 = Source.ProductList.FirstOrDefault(p => p.UnitPrice > 50);
+
+            //Console.WriteLine($"First product > $50: {firstProductOver50.ProductName}, Price: {firstProductOver50.UnitPrice:C2}");
+
+            #endregion
+
+
+
         }
     }
 }
