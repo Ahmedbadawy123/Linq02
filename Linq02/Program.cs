@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            #region 1. Get top 3 most expensive products
+            #region 1. Get top 3 most expensive products.
 
             //var top3MostExpensiveProducts = Source.ProductList
             //    .OrderByDescending(p => p.UnitPrice)
@@ -18,7 +18,7 @@
 
             #endregion
 
-            #region 2. show page 2 of products, with page size = 5
+            #region 2. show page 2 of products, with page size = 5.
 
             //int pageSize = 5;
             //int pageNumber = 2;
@@ -37,16 +37,27 @@
 
             #region 3. Take products from the list as long as Their UnitPrice is less than $25(list is ordered by price).
 
-            var productsLessThan25 = Source.ProductList
-                .OrderBy(p => p.UnitPrice)
-                .TakeWhile(p => p.UnitPrice < 25);
+            //var productsLessThan25 = Source.ProductList
+            //    .OrderBy(p => p.UnitPrice)
+            //    .TakeWhile(p => p.UnitPrice < 25);
 
-            foreach (var item in productsLessThan25)
-            {
-                Console.WriteLine(item);
-            }    
+            //foreach (var item in productsLessThan25)
+            //{
+            //    Console.WriteLine(item);
+            //}    
 
             #endregion
+
+            #region 4. Check if ALL products in the "Seafood" category are in stock.
+
+            var allSeafoodInStock = Source.ProductList
+                                    .Where(p => p.Category == "Seafood")
+                                    .All(p => p.UnitsInStock > 0);
+
+            Console.WriteLine( $"All Seafood Products Are In Stock: {allSeafoodInStock}" );
+
+            #endregion
+
         }
     }
 }
