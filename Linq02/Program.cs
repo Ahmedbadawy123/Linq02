@@ -275,6 +275,19 @@ namespace Linq02
 
             #endregion
 
+            #region 21. Pair each product with a customer (by position) and produce a string "ProductName sold to CompanyName".
+
+            //var pairedProductsAndCustomers = Source.ProductList
+            //    .Zip(Source.CustomerList, (p, c) => $"{p.ProductName} sold to {c.CustomerName}");
+
+            //foreach (var item in pairedProductsAndCustomers)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            // I Want An Explanation About This Code And I Want To Understand It
+
+            #endregion
         }
     }
 }
