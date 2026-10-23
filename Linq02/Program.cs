@@ -219,7 +219,7 @@ namespace Linq02
             #region 17. Try to get the first product with a price > $500. it returns null instead of throwing.
 
             //var firstProductOver500 = Source.ProductList.FirstOrDefault(p => p.UnitPrice > 500);
-          
+
             //if (firstProductOver500 != null)
             //{
             //    Console.WriteLine($"First product > $500: {firstProductOver500.ProductName}, Price: {firstProductOver500.UnitPrice:C2}");
@@ -229,6 +229,18 @@ namespace Linq02
             //    Console.WriteLine("No product found with price > $500.");
             //}
 
+
+            #endregion
+
+            #region 18. Generate a multiplication table row for 7
+
+            //var tableRowFor7 = Enumerable.Range(1, 12)
+            //                  .Select(i => $"7 x {i} = {7 * i}");
+
+            //foreach (var item in tableRowFor7)
+            //{
+            //    Console.WriteLine(item);
+            //}
 
             #endregion
 
