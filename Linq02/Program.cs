@@ -144,11 +144,24 @@ namespace Linq02
 
             #region 11. Find the CHEAPEST and MOST EXPENSIVE product prices
 
-            var cheapestProductPrice = Source.ProductList.Min(p => p.UnitPrice);
-            var mostExpensiveProductPrice = Source.ProductList.Max(p => p.UnitPrice);
+            //var cheapestProductPrice = Source.ProductList.Min(p => p.UnitPrice);
+            //var mostExpensiveProductPrice = Source.ProductList.Max(p => p.UnitPrice);
 
-            Console.WriteLine($"Cheapest Product Price: {cheapestProductPrice}");
-            Console.WriteLine($"Most Expensive Product Price: {mostExpensiveProductPrice}");
+            //Console.WriteLine($"Cheapest Product Price: {cheapestProductPrice}");
+            //Console.WriteLine($"Most Expensive Product Price: {mostExpensiveProductPrice}");
+
+            #endregion
+
+            #region 12. Get a distinct list of all product categories
+
+            var distinctCategories = Source.ProductList
+                                     .Select(p => p.Category)
+                                     .Distinct();
+
+            foreach (var item in distinctCategories)
+            {
+                Console.WriteLine(item);
+            }
 
             #endregion
         }
