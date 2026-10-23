@@ -216,7 +216,21 @@ namespace Linq02
 
             #endregion
 
+            #region 17. Try to get the first product with a price > $500. it returns null instead of throwing.
 
+            //var firstProductOver500 = Source.ProductList.FirstOrDefault(p => p.UnitPrice > 500);
+          
+            //if (firstProductOver500 != null)
+            //{
+            //    Console.WriteLine($"First product > $500: {firstProductOver500.ProductName}, Price: {firstProductOver500.UnitPrice:C2}");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("No product found with price > $500.");
+            //}
+
+
+            #endregion
 
         }
     }
