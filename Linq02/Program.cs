@@ -20,18 +20,31 @@
 
             #region 2. show page 2 of products, with page size = 5
 
-            int pageSize = 5;
-            int pageNumber = 2;
+            //int pageSize = 5;
+            //int pageNumber = 2;
 
-            var page2Products = Source.ProductList
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize);
-            // Helping By AI
+            //var page2Products = Source.ProductList
+            //    .Skip((pageNumber - 1) * pageSize)
+            //    .Take(pageSize);
+            //// Helping By AI
 
-            foreach (var item in page2Products)
+            //foreach (var item in page2Products)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 3. Take products from the list as long as Their UnitPrice is less than $25(list is ordered by price).
+
+            var productsLessThan25 = Source.ProductList
+                .OrderBy(p => p.UnitPrice)
+                .TakeWhile(p => p.UnitPrice < 25);
+
+            foreach (var item in productsLessThan25)
             {
                 Console.WriteLine(item);
-            }
+            }    
 
             #endregion
         }
