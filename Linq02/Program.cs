@@ -60,10 +60,26 @@
 
             #region 5. Check if the ID list contains 9 -> int[] ids = { 3, 9, 13, 18 };
 
-            var ids = new int[] { 3, 9, 13, 18 };
-            bool contains9 = ids.Contains(9);
+            //var ids = new int[] { 3, 9, 13, 18 };
+            //bool contains9 = ids.Contains(9);
 
-            Console.WriteLine($"Does ids Contain 9? {contains9}");
+            //Console.WriteLine($"Does ids Contain 9? {contains9}");
+
+            #endregion
+
+            #region 6. Group all products by Category and print each group with its product count.
+
+            var groupedProducts = Source.ProductList
+                .GroupBy(p => p.Category)
+                .Select(g => new
+                 { 
+                     Category = g.Key, Count = g.Count()
+                 });
+
+            foreach (var item in groupedProducts)
+            {
+                Console.WriteLine(item);
+            }
 
             #endregion
 
