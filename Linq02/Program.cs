@@ -1,4 +1,6 @@
-﻿namespace Linq02
+﻿using System.Diagnostics.Metrics;
+
+namespace Linq02
 {
     internal class Program
     {
@@ -102,18 +104,35 @@
 
             #region 8. Find all categories that have MORE THAN 3 products
 
-            var categoriesWithMoreThan3Products = Source.ProductList
-                .GroupBy(p => p.Category)
-                .Where(g => g.Count() > 3)
-                .Select(g => g.Key);
+            //var categoriesWithMoreThan3Products = Source.ProductList
+            //    .GroupBy(p => p.Category)
+            //    .Where(g => g.Count() > 3)
+            //    .Select(g => g.Key);
 
-            foreach (var item in categoriesWithMoreThan3Products)
+            //foreach (var item in categoriesWithMoreThan3Products)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region 9. Using QUERY SYNTAX, group customers by Country, and for each group select { Country, Count, TotalOrderValue }.
+
+            var customerGroups = from c in Source.CustomerList
+                                 group c by c.Country into g
+                                 select new
+                                 {
+                                     Country = g.Key,
+                                     Count = g.Count(),
+                                     TotalOrderValue = g.Sum(c => c.Orders.Sum(o => o.Total))
+                                 };
+
+            foreach (var item in customerGroups)
             {
                 Console.WriteLine(item);
             }
 
             #endregion
-
         }
     }
 }
